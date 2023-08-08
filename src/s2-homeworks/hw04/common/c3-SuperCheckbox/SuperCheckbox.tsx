@@ -27,13 +27,9 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
     }
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
+        onChangeChecked?.(e.currentTarget.checked)
         // задачка на написание онченджа
-        onChange?.(e) //это второй чекбокс, что бы оба срабатывали по клику на любой из них!!!
-        // onChangeChecked && onChangeChecked(e.currentTarget.checked);
-        onChangeChecked?.(e.currentTarget.checked); // строчка выше и if-ка ниже считай 3 варианта аналогичной записи c этой!!!!!
-        // if (onChangeChecked) {
-        //     onChangeChecked(e.currentTarget.checked)
-        // }
+
     }
 
     const finalInputClassName = s.checkbox

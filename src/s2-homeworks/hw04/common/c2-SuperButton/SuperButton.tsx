@@ -17,23 +17,14 @@ const SuperButton: React.FC<SuperButtonPropsType> = (
         ...restProps // все остальные пропсы попадут в объект restProps, там же будет children
     }
 ) => {
-    const finalClassName =
-        s.button
-        + (disabled
-                ? ' ' + s.disabled //...
-                : xType === 'red'
-                    ? ' ' + s.red
-                    : xType === 'secondary'
-                        ? ' ' + s.secondary
-                        : ' ' + s.default
-        )
-        + (className ? ' ' + s.className : '')
 
-    // + (disabled
-    //         ? ...
-    //         : xType === 'red'
-    //             ? ...
-    /*+ (className ? ' ' + className : '') */// задачка на смешивание классов
+    /*    const finalInputClassName = s.input
+            + (error ? ' ' + s.errorInput : ' ' + s.superInput)
+            + (className ? ' ' + className : '') */
+    const finalClassName = s.button + (disabled ? ' ' + s.disabled : ' ')
+        + (xType === 'red' ? ' ' + s.red : ' ') +
+        (xType === 'secondary' ? ' ' + s.secondary : ' ') +
+        (!xType ? ' ' + s.default : ' ') // задачка на смешивание классов
 
     return (
         <button
